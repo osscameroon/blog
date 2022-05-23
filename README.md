@@ -1,12 +1,14 @@
 # OSS Cameroon Blog
 
+![OSS blog banner](./public/static/images/banner.png)
+
 ## Installation
 
 Clone the project
 
 ```bash
-git clone https://github.com/osscameroon/blog.git
-cd osscameroon-blog
+git clone https://github.com/osscameroon/blog.git oss-blog
+cd oss-blog
 npm install
 ```
 
