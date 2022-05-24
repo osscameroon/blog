@@ -1,16 +1,16 @@
 name: Build the blog image and deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}-stage
+  IMAGE_NAME: ${{ github.repository }}-prod
 
 jobs:
-  build-and-push-staging:
+  build-and-push-prod:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -39,8 +39,8 @@ jobs:
         with:
           context: .
           build-args: |
-            googleAnalyticsId=ga_id
-            siteUrl=https://stage.blog.osscameroon.com
+            googleAnalyticsId=${{ secrets.GOOGLE_ANALYTICS_ID }}
+            siteUrl=https://blog.osscameroon.com
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -52,5 +52,5 @@ jobs:
           type: compose
           patch-field: ".services.blog.image"
           patch-value: ${{ steps.meta.outputs.tags }}
-          file: blog-stack.yml
+          file: blog-prod-stack.yml
           gh-token: ${{ secrets.GA_WORKFLOW_DEPLOYMENTS_TOKEN }}
