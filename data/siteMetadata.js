@@ -6,10 +6,10 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://stage.blog.osscameroon.com',
-  siteRepo: 'https://github.com/tericcabrel/oss-blog',
+  siteRepo: 'https://github.com/osscameroon/blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/banner.png',
   email: 'osscameroon@gmail.com',
   github: 'https://github.com/osscameroon',
   twitter: 'https://twitter.com/osscameroon',
