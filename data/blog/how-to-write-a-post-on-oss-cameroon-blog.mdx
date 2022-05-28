@@ -6,7 +6,7 @@ draft: false
 summary: You want to create a post on the OSS Cameroon blog and don't know how? Don't panic I'm here to show you the whole process
 images: []
 layout: PostLayout
-canonicalUrl:
+authors: ['default', 'tericcabrel']
 ---
 
 ## Overview
@@ -58,21 +58,128 @@ Open the browser and navigate to [http://localhost:3000](http://localhost:3000)
 
 You will see the blog homepage
 
-![Run the project locally](/static/images/posts/write-post-oss-cameroon-blog/3-oss-article-fork-run-project-local.png)
+![Run the project locally](/static/images/posts/write-post-oss-cameroon-blog/3-oss-article-run-project-local.png)
 
 ## Add me as Author
+A blog post can have one or many authors and to be added as an author, your information must present in the folder `data/authors`.
+If you have already written a post for this blog, can skip this part.
 
+Copy the file `data/authors/newauthor.md` and give an username you want. The username must not be present in the folder `data/authors`
+
+In my case, my username is **tericcabrel** so, I will duplicate the file with the following command:
+```shell
+cp data/authors/newauthor.md data/authors/tericcabrel.md
+```
+
+Open your author file and edit the information. Here is an example:
+```md
+---
+name: Eric cabrel TIOGO
+avatar: /static/images/authors/tericcabrel.png
+occupation: Software Engineer
+company:
+email: tericcabrel@yahoo.com
+twitter: https://twitter.com/tericcabrel
+linkedin: https://www.linkedin.com/in/tericcabrel
+github: https://github.com/tericcabrel
+---
+```
+
+For the property avatar, make sure to copy your picture in the folder `static/images/authors`
+Save and exit and we are done for this part.
 
 ## Add a blog post
+let say you want to write a post with the title: **Authentication with Google using Node.js**.
+
+To add blog post, at the root project directory of the blog, run the command below:
+```shell
+node scripts/compose.js
+```
+
+Provide an answer to questions prompted in the terminal.
+
+![Run the project locally](/static/images/posts/write-post-oss-cameroon-blog/4-oss-article-create-post.gif)
+
+Inside the folder `data/blog`, you will find the file named `authentication-with-google-using-nodejs.mdx` open it,
+and you will see the following content:
+
+```md
+---
+title: Authentication with Google using Node.js
+date: '2022-05-28'
+tags: ['authentication','node','google']
+draft: false
+summary: a summary of the post
+images: []
+layout: PostLayout
+canonicalUrl:
+authors: ['tericcabrel']
+---
+```
+
+You can edit these properties as you want.
 
 ## Start editing
+The file is created, you can now use the Markdown syntax to write your article.
+With MDX, you can go further by adding HTML tags directly in the Markdown
+
+### Browse the while editing
+To see how the article will be displayed while you are writing, start the application
+```shell
+npm start
+```
+Navigate to `http://localhost:300/posts/authentication-with-google-using-nodejs`
+
+Now edit the content, save and the page will be refreshed automatically.
+
+If you pay attention, the URL path `authentication-with-google-using-nodejs` is equivalent
+to the filename inside the folder `data/blog` without the extension
+
+### Add table of contents
+The table of contents is useful to display a quick overview of the article and easily jump to the section we are interested in.
+
+In the beginning of the article, add the line below:
+```md
+## Overview
+
+<TOCInline toc={props.toc} exclude="Overview" toHeading={3} />
+```
+The value of the property `toHeading` can be between **1 and 6**; it is the equivalent to **h1, h2, h3, h4, h5 and h6**
+
+`toHeading={3}` will display headings _h1, h2, h3_ in the table contents and ignore _h4, h5, h6_
 
 ## Commit and push
+Once you finish writing your blog post and ready to publish online, you need to commit your changes and push to the remote repository.
 
-## Create a pull request
+We will create a new Git branch, commit the changes on that branch and push to remote repository.
+I will call the branch `auth-google-node` but you can name it as you own.
+```shell
+git checkout -b auth-google-node
+git add .
+git commit -m "finish article about authentication with google in node.js"
+git push origin auth-google-node
+```
 
-## When for your pull request to approved
+You will get the output similar to this
 
-## Deploy in production when merged
+![Commit the changes and push](/static/images/posts/write-post-oss-cameroon-blog/5-oss-article-commit-push.png)
 
-## View the blog online
+
+## Submit your article to the main blog
+
+### Create a pull request
+
+Go to project repository on your GitHub Account and create a pull request to the main blog repository on OSS Cameroon.
+
+
+![Commit the changes and push](/static/images/posts/write-post-oss-cameroon-blog/6-oss-article-create-pull-request.png)
+
+
+### When for your pull request to approved
+
+At this step, members of OSS Cameroon will receive a notification of your pull request, review your posts.
+If there are changes to apply, you will fix and update the pull request.
+
+When no changes needed, the pull request will be merged and publish on the [https://blog.osscameroon.com](https://blog.osscameroon.com).
+
+Congratulations, you published your article 🎉
