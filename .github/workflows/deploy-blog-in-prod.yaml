@@ -48,10 +48,10 @@ jobs:
       - name: Deploy in production
         uses: osscameroon/sammy-actions@v1.5
         with:
-          service: webapp
+          service: blog
           type: compose
           env: prod
-          patch-field: ".services.blog.image"
+          patch-field: ".services.webapp.image"
           patch-value: ${{ steps.meta.outputs.tags }}
           file: blog-prod-stack.yml
           gh-token: ${{ secrets.GA_WORKFLOW_DEPLOYMENTS_TOKEN }}
