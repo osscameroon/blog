@@ -23,7 +23,8 @@ and all the posts are hosted in the GitHub repository as a Markdown file.
 **To continue with the next steps, it is mandatory to have a [GitHub account](https://github.com).**
 
 ## Fork the project
-The first step is to fork the project to your own account. If you don't know what "fork" is, check out this link to learn more.
+The first step is to fork the project to your own account. If you don't know what "fork" is,
+check out [this link](https://docs.github.com/en/get-started/quickstart/fork-a-repo) to learn more.
 
 Go the blog repository link: [https://github.com/osscameroon/blog](https://github.com/osscameroon/blog)
 
@@ -37,15 +38,19 @@ You will see the UI below:
 
 The GitHub repository of the blog is now on your GitHub account.
 
+**Note:** when forking the project, the repository's name can be anything you want.
+
 ## Set up the project on your local computer
-Clone the project from your GitHub account. The link to the repository is `https://github.com/<your_username>/oss-cameroon-blog.git`
+Clone the project from your GitHub account. The link to the repository is `https://github.com/<your_username>/<repository_name>.git`
 
 On your local computer, clone the project with following command:
 ```shell
-git clone https://github.com/<your_username>/oss-cameroon-blog.git
+git clone https://github.com/<your_username>/<repository_name>.git
 ```
 
-Replace your `<your_username>` by your own GitHub username.
+* Replace your `<your_username>` by your own GitHub username.
+* Replace your `<repository_name>` by the repository's name you gave.
+
 
 ### Run the project locally
 To run the project locally, run the command below:
@@ -61,7 +66,7 @@ You will see the blog homepage
 ![Run the project locally](/static/images/posts/write-post-oss-cameroon-blog/3-oss-article-run-project-local.png)
 
 ## Add me as Author
-A blog post can have one or many authors and to be added as an author, your information must present in the folder `data/authors`.
+A blog post can have one or many authors and to be added as an author, your information must be present in the folder `data/authors`.
 If you have already written a post for this blog, can skip this part.
 
 Copy the file `data/authors/newauthor.md` and give an username you want. The username must not be present in the folder `data/authors`
@@ -85,22 +90,22 @@ github: https://github.com/tericcabrel
 ---
 ```
 
-For the property avatar, make sure to copy your picture in the folder `static/images/authors`
-Save and exit and we are done for this part.
+For the property **avatar**, make sure to copy your picture in the folder `static/images/authors`
+Save and exit, and we are done for this part.
 
 ## Add a blog post
 let say you want to write a post with the title: **Authentication with Google using Node.js**.
 
 To add blog post, at the root project directory of the blog, run the command below:
 ```shell
-node scripts/compose.js
+npm run create-post
 ```
 
 Provide an answer to questions prompted in the terminal.
 
 ![Run the project locally](/static/images/posts/write-post-oss-cameroon-blog/4-oss-article-create-post.gif)
 
-Inside the folder `data/blog`, you will find the file named `authentication-with-google-using-nodejs.mdx` open it,
+The CLI will generate a file in the folder `data/blog`, you will find the file named `authentication-with-google-using-nodejs.mdx` open it,
 and you will see the following content:
 
 ```md
