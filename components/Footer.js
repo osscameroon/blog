@@ -15,7 +15,7 @@ export default function Footer() {
           <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" />
         </div>
         <div className="mb-8 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{siteMetadata.author}</div>
+          <Link href="https://osscameroon.com">{siteMetadata.author}</Link>
           <div>{` • `}</div>
           <div>{`© Copyright ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
