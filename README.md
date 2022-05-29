@@ -72,7 +72,7 @@ npm run create-post
 ```
 
 ## How to add a blog post
-We wrote a whole post to guide on how to write and publish an article on OSS Cameroon blog. [Check it out](https://blog.osscameroon.com/posts/how-to-write-a-post-on-oss-cameroon-blog)
+We wrote a whole post to guide on how to write and publish an article on OSS Cameroon blog. [Check it out](https://blog.osscameroon.com/posts/how-to-write-a-post-on-oss-cameroon-blog).
 
 ## Credits
 This blog is built from this excellent blog template [Tailwing Next.js Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog). Star and share the repository to support the author. 
