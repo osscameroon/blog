@@ -48,7 +48,7 @@ jobs:
       - name: Deploy in production
         uses: osscameroon/sammy-actions@v1.5
         with:
-          service: blog
+          service: webapp
           type: compose
           env: prod
           patch-field: ".services.blog.image"
