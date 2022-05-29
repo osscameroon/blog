@@ -8,7 +8,7 @@ Clone the project
 
 ```bash
 git clone https://github.com/osscameroon/blog.git oss-blog
-cd oss-blog
+cd blog
 npm install
 ```
 
@@ -62,11 +62,17 @@ canonicalUrl: https://blog.osscameroon.com/posts/oss-cameroon-vision
 ---
 ```
 
-### Compose
+### Create a new post
 
 Run the command below to create a new post.
 Follow the interactive prompt to generate a post with pre-filled front matter.
 
 ```shell
-node ./scripts/compose.js
+yarn create-post
 ```
+
+## How to add a blog post
+We wrote a whole post to guide on how to write and publish an article on OSS Cameroon blog. [Check it out](https://blog.osscameroon.com/posts/how-to-write-a-post-on-oss-cameroon-blog)
+
+## Credits
+This blog is built from this excellent blog template [Tailwing Next.js Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog). Star and share the repository to support the author. 
