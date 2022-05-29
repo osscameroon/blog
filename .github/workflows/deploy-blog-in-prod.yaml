@@ -45,11 +45,12 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Deploy on stage
+      - name: Deploy in production
         uses: osscameroon/sammy-actions@v1.3
         with:
           service: blog
           type: compose
+          env: prod
           patch-field: ".services.blog.image"
           patch-value: ${{ steps.meta.outputs.tags }}
           file: blog-prod-stack.yml

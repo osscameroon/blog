@@ -48,7 +48,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                 />
               </svg>
             </div>
-            <CustomLink href="https://github.com/osscameroon/blog/blob/master/README.md">
+            <CustomLink href="https://blog.osscameroon.com/posts/how-to-write-a-post-on-oss-cameroon-blog">
               <button className="focus:shadow-outline-blue mt-6 block w-full rounded-lg border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-primary-700 focus:outline-none dark:hover:bg-primary-500 sm:mt-0 sm:inline sm:w-auto">
                 Add my own article
               </button>
