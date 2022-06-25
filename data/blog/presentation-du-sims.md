@@ -1,7 +1,7 @@
 ---
 title: Presentation du Sims
 date: '2022-06-25'
-tags: ['python DevOps CI/CD']
+tags: ['python', ' DevOps', 'CI/CD']
 draft: false
 summary: Salut, je suis Emmanuel Ndi. Passionné d’astronomie, d’astrophysique, mais surtout d’informatique.
 images: []
