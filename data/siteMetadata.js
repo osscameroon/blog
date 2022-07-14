@@ -5,7 +5,7 @@ const siteMetadata = {
   description: 'The place where cameroonian developers share their thoughts',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://stage.blog.osscameroon.com',
+  siteUrl: 'https://blog.osscameroon.com',
   siteRepo: 'https://github.com/osscameroon/blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
