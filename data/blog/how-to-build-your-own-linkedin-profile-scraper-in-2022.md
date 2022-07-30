@@ -23,11 +23,11 @@ What follows is tutorial on how to build a scraper in python that can be used to
 
 ## Procedure
 
-Though the scraping is mostly an wutomation process, it is a broad process that can be broken down into several steps.
+Through the scraping is mostly an automation process, it is a broad process that can be broken down into several steps.
 
 ### Environment setup
 
-Python is the chosen language for this tutorial and as you can guess some precautions should be done to make sure that the environment is setup correctly and the main OS I'll use is Ubuntu(a Linux distro) [virtual environment](https://virtualenv.pypa.io/) is a tool that helps you to isolate your code from the rest of the system. It is a good idea to create a virtual environment for your project.
+Python is the chosen language for this tutorial and as you can guess some precautions should be done to make sure that the environment is setup correctly and the main OS I'll use is Ubuntu(a Linux distro), [virtual environment](https://virtualenv.pypa.io/) is a tool that helps you to isolate your code from the rest of the system. It is a good idea to create a virtual environment for your project.
 
 - Make a new directory on your desktop and cd into it.
 
@@ -124,7 +124,7 @@ log_in_button.click()
 
 ```
 
-Fronm here, you'll be directed to your LinkedIn profile. Guess what, you successfully automated your login process.
+From here, you'll be directed to your LinkedIn profile. Guess what, you successfully automated your login process.
 
 - Next we want to make a search query on google that will target all the LinkedIn profiles matching the item "Web" AND "Javascript" on their profile.
 
@@ -144,7 +144,7 @@ search_query.send_keys('site:linkedin.com/in/ AND "Web" AND "Javascript"')
 
 from selenium.webdriver.common.keys import Keys
 
-earch_query.send_keys(Keys.ENTER)
+search_query.send_keys(Keys.ENTER)
 ```
 
 The search can be customized, feel free to modify at your needs.
