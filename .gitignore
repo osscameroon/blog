@@ -35,3 +35,8 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 notes.txt
+
+# generated files by vcs and IDEs
+.history/*
+.idea/*
+.vscode/*
