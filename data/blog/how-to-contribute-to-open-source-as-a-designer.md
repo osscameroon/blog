@@ -2,7 +2,7 @@
 title: How to Contribute to Open Source as a Designer
 authors: ['theryx']
 date: '2022-09-24'
-tags: []
+tags: ['community', 'blogging', 'open-source']
 draft: false
 summary: 'How to Contribute to Open Source as a Designer: A case study of OSS Cameroon'
 images: []
