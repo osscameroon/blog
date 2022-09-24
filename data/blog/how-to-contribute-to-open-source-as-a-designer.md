@@ -1,6 +1,6 @@
 ---
 title: How to Contribute to Open Source as a Designer
-authors: ['Theryx']
+authors: ['theryx']
 date: '2022-09-24'
 tags: []
 draft: false
