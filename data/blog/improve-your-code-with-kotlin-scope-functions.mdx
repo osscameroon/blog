@@ -1,0 +1,143 @@
+---
+title: Improve your code with Kotlin scope functions
+date: '2022-11-27'
+tags: ['Kotlin', 'Beginner']
+draft: false
+summary: Kotlin standard library has some built-in scoping functions to avoid boilerplate codes and improve readabilty.
+images: []
+layout: PostLayout
+canonicalUrl:
+---
+
+# Improve your kotlin code with scope functions
+
+## Overview
+
+Scope functions are functions whose purpose is to run a bit of code and sometimes return a result. They are not mandatory but improve the readability of code.
+
+<TOCInline toc={props.toc} exclude="Overview" fromHeading={2} toHeading={2} />
+
+## **let** function
+
+`let` allows to use an object inside a separated scope.
+
+### example 1
+
+```kotlin
+val sarcasm = "Programming sucks!".let {
+    val sarcasmWithFont = it.mapIndexed { index, c ->
+        val newChar = if (index % 2 == 0) {
+            c.uppercase()
+        } else {
+            c.lowercase()
+        }
+        newChar
+    }.joinToString("")
+    "This is a sarcasm: $sarcasmWithFont"
+}
+println(sarcasm) /*This is a sarcasm: PrOgRaMmInG SuCkS!*/
+```
+
+### example 2
+
+```kt
+var secret_number = 10
+secret_number.let{
+    val triple = it * 3 // it = 10
+    println("3 times $it equals $triple")
+}
+/* 3 times 10 equals 30*/
+```
+
+The **context** is an object on which you call a function. The word **it** refers to the context. Anything declared inside the lambda is not accessible outside. The function `let` returns the result of the lambda.
+It's a common practice to use `let` with the [safe-call operator `?.`](https://kotlinlang.org/docs/null-safety.html#safe-calls) to performs an action if an object is not `null`.
+
+### example 3
+
+```kt
+name?.let{ println("His name is $it") }
+```
+
+## **run** function
+
+`run` works like `let` except that you use the keyword `this` to refer to the context. You can also call `run` without context.
+
+### example 1
+
+```kt
+data class Car(var name:String, var speed:Float)
+...
+val myCar = Car("Street Danger", 999f)
+myCar.run{
+    println("${this.name} : ${this.speed}")
+}
+```
+
+You can also omit the `this`
+
+```kt
+data class Car(var name:String, var speed:Float)
+...
+val myCar = Car("Street Danger", 999f)
+myCar.run{
+    println("$name : $speed")
+}
+```
+
+## **with** function
+
+The function `with` works like `run` but it doesn't have context. It takes the object as argument.
+
+### example 1
+
+You can do the following
+
+```kt
+val window = Window()
+with(window){
+    setTitle("Great Software")
+    setSize(640, 480)
+    show
+}
+```
+
+instead of
+
+```kt
+window.setTitle("Great Software")
+window.setSize(640, 480)
+window.show
+```
+
+## **apply** function
+
+`apply` does the same thing as `with` but does not receive argument.
+
+### example 1
+
+```kt
+val myCar = Car("Street Danger", 999f)
+myCar.apply {
+    name = "Road Snail"
+    speed = 10f
+}
+```
+
+## **also** function
+
+`also` works like `let` but always returns its context.
+
+### example 1
+
+```kt
+val dog = Dog()
+dog.also{ it.bark()}.also{ it.sleep()}.also{ it.cry()}
+```
+
+## Conclusion
+
+There are five scope functions in Kotlin. They mainly reduce code and make it more readable. When used wisely they avoid boilerplate codes. You should definitely master them.
+
+For further reading about scope functions: [Kotlin Docs](https://kotlinlang.org/docs/scope-functions.html).
+
+Thanks for reading!
