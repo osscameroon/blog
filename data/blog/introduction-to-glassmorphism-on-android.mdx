@@ -1,0 +1,206 @@
+---
+title: Introduction to Glassmorphism on Android
+date: '2023-05-16'
+tags: ['ANDROID', 'KOTLIN', 'DESIGN', 'BEGINNER']
+draft: false
+summary: An introduction to glassmorphism using BlurView library
+images: []
+layout: PostLayout
+canonicalUrl:
+authors: ['othimar']
+---
+
+# Overview
+
+<TOCInline toc={props.toc} exclude="Overview" toHeading={3} />
+
+# What is glassmorphism?
+
+Glassmorphism is a design style that uses transparency and blur to create glass-like effect . For transparency, we can use a transparent color. For the blur effect, we will use **[BlurView](https://github.com/Dimezis/BlurView)** library.
+In this tutorial, we are going to create a transparent card-like View with a glasmorphism effect.
+
+![Final Result](/static/images/posts/introduction-to-glassmorphism-on-android/screenshot.png)
+
+I code in Kotlin but it's easily adaptable to Java.
+I'm using Intellij IDEA 2023.1. But everything should work fine with with any recent version of Intellij or Android Studio.
+The source code is available on [github](https://github.com/othimar/android-glassmorphism-sample-app).
+
+# Setup the project
+
+We will start with a basic activity project.
+
+## Add BlurView dependency
+
+First we add jitpack repository in **settings.gradle**,
+inside **dependencyResolutionManagement**.
+
+```kts
+repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+```
+
+Then add **BlurView** inside the file **build.gradle**, in the **app** folder.
+
+```gradle
+implementation 'com.github.Dimezis:BlurView:version-2.0.3'
+```
+
+Now, we can start coding.
+
+## let's code
+
+### Add a background to the layout
+
+Glassmorphism works better with a background image. If we want to see through the glass, it's better to have something behind it. Add a background to the _constraint_layout_ in **layout_main.xml**.
+
+```xml
+<androidx.constraintlayout.widget.ConstraintLayout
+    ...
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:background="@drawable/astronaut">
+```
+
+We also attribute him an _id_.
+
+### Create a background for the card
+
+Our card will have a **BlurView** as container. BlurView behaves like a FrameLayout. First, create a drawable to add borders and rounded corners to the blurview.
+
+Create a file named _rounded_background.xml_ and the following content:
+
+```xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:color="#88B1B1B1" android:width="1dp"/>
+    <corners android:radius="16dp"/>
+</shape>
+```
+
+The border is gray and slightly transparent. The BlurView will manage the background color itself.
+
+### Add a BlurView to the layout
+
+We add a blurview to our _constraint_layout_.
+
+```xml
+<eightbitlab.com.blurview.BlurView
+    android:id="@+id/blur_view"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginBottom="30dp"
+
+    android:padding="20dp"
+    app:blurOverlayColor="#1E737E92"
+    android:background="@drawable/rounded_background">
+
+</eightbitlab.com.blurview.BlurView>
+```
+
+The `app:blurOverlayColor` defines the color of the blurry background. This color is slightly transparent.
+
+Now, inside the _main_activity.kt_ file, set up the BlurView behavior. Add the following lines to the `oncreate` method.
+
+```kotlin
+//Hide the system bar and action bar
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        supportActionBar?.hide()
+
+val root = findViewById<ViewGroup>(R.id.root)
+val blurView = findViewById<BlurView>(R.id.blur_view)
+
+/*clipToOutline ensures that the content will no the content will not show outside the borders, specially at the rounded corners*/
+blurView.clipToOutline = true
+
+//The blurRadius
+val blurRadius = 6f
+
+/*There are two ways to initialize the blurview depending on the version of android. RenderEffectBlur does not work on older versions.*/
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+    blurView.setupWith(root, RenderEffectBlur())
+        .setBlurRadius(blurRadius)
+}else{
+    blurView.setupWith(root, RenderScriptBlur(this))
+        .setBlurRadius(blurRadius)
+}
+```
+
+Now, add some child views to the BlurView. A **LinearLayout** containing 2 `TextView` and one `AppCompatButton`.
+
+```xml
+<LinearLayout
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready for glassmorphism?"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desing for the future"
+        android:textColor="#C8C8C8"
+        android:textSize="14sp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/action_button"
+        android:text="Dive!"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
+```
+
+The `AppCompatButton` need a transparent background.
+Create a drawable named **action_button.xml**
+
+```xml
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#D3848484"/>
+            <corners android:radius="8dp"/>
+            <stroke android:color="#99B8B8B8" android:width="1dp"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000"/>
+            <corners android:radius="8dp"/>
+            <stroke android:color="#5CB1B1B1" android:width="1dp"/>
+        </shape>
+    </item>
+
+</selector>
+```
+
+Then add this drawable to the `AppCompatButton`.
+
+```xml
+<androidx.appcompat.widget.AppCompatButton
+    ...
+    android:background="@drawable/action_button"/>
+```
+
+# Conclusion
+
+That's all. You can now create astonishing visual effects using glassmorphism.
