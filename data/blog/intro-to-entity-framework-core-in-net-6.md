@@ -185,7 +185,7 @@ Entities/
 
 ```
 
-and fill it with the following content
+and fill it with the following content:
 
 ```cs
 using Ef_Intro.Entities;
