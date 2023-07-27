@@ -223,7 +223,7 @@ Where `"Initial Create"` is just the given name of our migration.
 dotnet ef database update
 ```
 
-Once those two commands completed, you should be able to see the `app.db` file created in your root project directory, and if you open this file in your favorite Sqlite db explorer, you should see:
+Once those two commands are completed, you should be able to see the `app.db` file created in your root project directory, and if you open this file in your favorite Sqlite db explorer, you should see:
 
 ![Database scheme](/static/images/posts/intro-to-entity-framework-core-in-net-6/dbscheme.png)
 
