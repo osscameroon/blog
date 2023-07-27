@@ -3,7 +3,7 @@ title: Intro to Entity Framework Core in .NET 6
 date: '2023-07-19'
 tags: ['C#', '.NET', 'efcore', 'Csharp']
 draft: false
-summary: Entity framework is a .NET tool to interact with various kind of databases, providing the same api for each of these database providers. In this blog post, you will see how to set un Entity Framework and build your first CRUD operation over a Sqlite database
+Entity framework is a .NET tool to interact with various kind of databases, providing the same API for each of these database providers. In this blog post, you will see how to set an Entity Framework and build your first CRUD operation over a SQLite database
 images: []
 layout: PostLayout
 canonicalUrl: ''
