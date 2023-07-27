@@ -267,7 +267,7 @@ public interface IProductsService
 }
 ```
 
-Then, in the same folder we create the corresponding implementations of each service like follows
+Then, in the same folder we create the corresponding implementations of each service like follows:
 
 ### InputManager
 
