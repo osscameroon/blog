@@ -58,7 +58,7 @@ And the output should be:
 
 Once the required tools are installed, we can go ahead and create our C# project.
 
-To follow along with me, you should run the exact commands shown below. I will obviously explain why I run a specific command, and what is it for.
+To follow along with me, you should run the exact commands shown below. I will explain why I run a specific command, and what it is for.
 
 ## Create a Console project
 
