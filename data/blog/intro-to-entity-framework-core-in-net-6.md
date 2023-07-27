@@ -10,7 +10,7 @@ canonicalUrl: ''
 authors: ['djoufson']
 ---
 
-# Intro to Entity Framework Core in .NET 6
+# Introduction to Entity Framework Core in .NET 6
 
 ![Intro to Entity Framework Core in .NET 6](/static/images/posts/intro-to-entity-framework-core-in-net-6/banner.jpg)
 
