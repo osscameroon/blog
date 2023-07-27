@@ -207,7 +207,7 @@ Here we initialize our DbContext to have a single DbSet mapped to the `Product` 
 
 ## Create and Run the migrations
 
-A migration is a way to design the database scheme, and keep track of the updates we made over our database scheme and design. It has indications about how the database should look like, which tables has which columns.
+A migration is a way to design the database schema, and keep track of the updates we made over our database schema and design. It has indications about how the database should look like, which tables has which columns.
 
 **To create a migration, we run the command**
 
