@@ -27,7 +27,7 @@ Entity framework is a .NET tool to interact with various kind of databases, prov
 
 # Requirements
 
-For this tutorial I'll be using Vs Code as my code editor, and all the stuff will be made through CLI. You can use your favorite Code editor, and your favorite CLI tool (Powershell, CMD, cmdr ...)
+For this tutorial I'll use VS Code as my code editor, and all the stuff will be made through CLI. You can use your favorite code editor, and your favorite CLI tool (Powershell, CMD, cmdr ...) 
 
 ## Install .NET
 
