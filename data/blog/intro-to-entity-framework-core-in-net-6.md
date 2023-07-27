@@ -387,7 +387,7 @@ public class InputManager : IInputManager
 }
 ```
 
-And the other one
+And the other one:
 
 ### ProductsService
 
