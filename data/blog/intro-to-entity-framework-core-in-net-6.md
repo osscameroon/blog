@@ -138,7 +138,7 @@ Those are the required packages you have to install in order to properly work wi
 
 # Create the entities
 
-The application we are going to build is a simple stock application, that manage to stores the products list and prices in a database.To do so, we will need a single `Product` entity.
+The application we are going to build is a simple stock application, that manages to store the products list and prices in a database.To do so, we will need a single `Product` entity.
 
 The entity will be the model used to materialize the results coming from our database
 
