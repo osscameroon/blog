@@ -1,0 +1,167 @@
+---
+title: 'OSDD : Open Source Driven Development'
+date: '2024-03-31'
+keywords: ['Open Source Driven Development', 'Open Source', 'Driven Development', 'OSDD']
+tags: ['Open Source Driven Development', 'Open Source', 'Driven Development', 'OSDD']
+draft: false
+description: It’s about how Open Source can help individual or organization to get better and better
+summary: It’s about how Open Source can help individual or organization to get better and better
+images: [/static/images/posts/open-source-driven-development/osdd-article-preview.jpg]
+layout: PostLayout
+canonicalUrl: open-source-driven-development
+authors: ['default', 'fanjups']
+---
+
+![Open Source Driven Development Image Banner](/static/images/posts/open-source-driven-development/osdd-image-banner.jpg)
+
+---
+
+## Overview
+
+<TOCInline toc={props.toc} exclude="Overview" toHeading={6} />
+
+---
+
+## OSDD in a Nutshell
+
+Well, how to define [Open Source](https://opensource.org/definition-annotated)? Let's not reinvent the wheel and use this simple [Opensource.com definition](https://opensource.com/resources/what-open-source):
+
+> The term [open source](https://opensource.com/article/18/2/coining-term-open-source-software) refers to something people can modify and share because its design is publicly accessible.
+
+Open Source is the backbone of software industry, every proprietary project uses at least one Open Source project. **I rely on Open Source to improve myself day after day** by contributing to different projects as you can see on [my GitHub profile](https://github.com/FanJups). Likewise, I think everyone can do the same.
+
+Most of the time, the expression **Driven Development** is associated with the words **Test (Test Driven Development), Behavior (Behavior Driven Development),…** to express a way to write code. With OSDD, the focus is not on the code but people like you and me. **It’s about how Open Source can help individual or organization to get better and better.**
+
+There is no doubt that Open Source has a big-BIG-**BIG** potential but there are some [challenges](#open-source-challenges) we have to pay attention in order to build a **Sustainable Open Source profiting to everyone**. Next, we'll focus on how [Open Source triggers Growth](#open-source-triggers-growth).
+
+## Open Source Challenges
+
+**Building Open Source Software brings to the table some issues related to remuneration , level of support and license.** Whether we build Open Source or proprietary project, we all have to pay bills at the end of the month. So how do we find money for that purpose ? **It's not always about money, it's also important to think about giving back to the community in terms of contribution.** Let's illustrate this topic with these 3 points: [Colors.js & Faker.js](#colorsjs--fakerjs), [Akka](#akka) and [Bruce Perens](#bruce-perens).
+
+### Colors.js & Faker.js
+
+[Colors.js](https://www.npmjs.com/package/colors) & [Faker.js](https://www.npmjs.com/package/faker) are 2 npm librairies developed by [Marak Squires](https://github.com/Marak). Unfortunately, he intentionally shut down his own projects due to the lack of support from companies using these projects.
+
+On November 8, 2020, he [opened an issue](https://web.archive.org/web/20210704022108/https:/github.com/Marak/faker.js/issues/1046) explaining his frustration:
+
+> **No more free work from Marak - Pay Me or Fork This #1046**
+>
+> Respectfully, I am no longer going to support Fortune 500s ( and other smaller sized companies ) with my free work.
+>
+> There isn't much else to say.
+>
+> Take this as an opportunity to send me a six figure yearly contract or fork the project and have someone else work on it.
+
+To learn more:
+
+- [FOSSA -> Open Source Developer Sabotages npm Libraries ‘Colors,’ ‘Faker’](https://fossa.com/blog/npm-packages-colors-faker-corrupted/amp/)
+- [revenera -> The story behind colors.js and faker.js](https://www.revenera.com/blog/software-composition-analysis/the-story-behind-colors-js-and-faker-js/)
+- [INTERNET ARCHIVE -> Monetizing Open-source is problematic](https://web.archive.org/web/20210516172305/https:/marak.com/blog/2021-04-25-monetizing-open-source-is-problematic)
+- [INTERNET ARCHIVE -> No more free work from Marak - Pay Me or Fork This](https://web.archive.org/web/20210704022108/https:/github.com/Marak/faker.js/issues/1046)
+- [Silicon Republic -> Open-source developer corrupts his own files, impacting millions](https://www.siliconrepublic.com/enterprise/github-marak-squires-colors-faker-npm-corrupt-open-source)
+
+### Akka
+
+[Akka](https://github.com/akka/akka) aims to build highly concurrent, distributed, and resilient message-driven applications on the JVM. It is developed by [Lightbend](https://www.lightbend.com/). They changed license from an open source license [**Apache License 2.0**](https://www.apache.org/licenses/LICENSE-2.0) to a [source-available license](https://fossa.com/blog/comprehensive-guide-source-available-software-licenses/) [**Business Source License 1.1**](https://fossa.com/blog/business-source-license-requirements-provisions-history/) because they had to find the right balance between running their organisation and maintaining the project as stated here:
+
+> At the same time, companies using open source software commercially have become more confident operating it themselves and less reliant on help from the companies developing the software.
+>
+> When I initially chose the Apache 2.0 license for Akka, I was unaware of the impact that choice would have if Akka became a large, global project. For better or worse, Apache was and still is seen as the de facto standard license of choice in the open source community. Apache 2.0 is a very liberal license well suited for early, small open source projects establishing community. It essentially gives users the right to do whatever they want without any restrictions or obligations to contribute back to the community and the project from which they benefit.
+>
+> **Over the years, Lightbend has steadily borne more of the support for Akka. With Akka now considered critical infrastructure for many large organizations, the Apache 2.0 model becomes increasingly risky when a small company solely carries the maintenance effort. Balancing the global demands of our corporate community while supporting these needs of a vast open source base is a tremendous weight to bear.**
+
+To learn more:
+
+- [Akka's GitHub Pull Request -> Change license](https://github.com/akka/akka/pull/31561)
+- [Lightbend -> Why We Are Changing the License for Akka](https://www.lightbend.com/blog/why-we-are-changing-the-license-for-akka)
+- [freeCodeCamp.org -> How open source licenses work and how to add them to your projects](https://www.freecodecamp.org/news/how-open-source-licenses-work-and-how-to-add-them-to-your-projects-34310c3cf94/)
+- [Choose an open source license](https://choosealicense.com/)
+
+### Bruce Perens
+
+We can not talk about challenges in Open Source industry without mentionning Bruce Perens, one of the founders of the Open Source movement, advocate in the Free Software movement. He created The Open Source Definition and published the first formal announcement and manifesto of open source. He co-founded the Open Source Initiative (OSI) with Eric S. Raymond. He is sad about what's going on in the industry then he is thinking about improving it for the better.
+
+[The Register -> Open source's new mission: To boldly go where no software has gone before](https://www.theregister.com/2024/01/08/open_sources_new_mission/):
+
+> And while a lot of big company FOSS usage feeds back to the community, a lot do not.
+
+[The Register -> What comes after open source? Bruce Perens is working on it](https://www.theregister.com/2023/12/27/bruce_perens_post_open/):
+
+> Post-Open, as he describes it, is a bit more involved than Open Source. It would define the corporate relationship with developers to ensure companies paid a fair amount for the benefits they receive. It would remain free for individuals and non-profit, and would entail just one license.
+
+To sum up, **the problem is not Open Source itself but how actors use Open Source**. To support Open Source developers, there are some existing solutions such as [GitHub Sponsorship](https://github.com/sponsors), [Open Collective](https://opencollective.com/) collecting money. Furthermore, contributing back to the project in terms of maintenance is a must. Regarding the cases of [Marak](#colorsjs--fakerjs) and [Akka](#akka), we could have avoided this if they had received the support they so badly needed. [Bruce Perens](#bruce-perens) emphasizes on the fact that Big orgs must rethink their relation with developers - individuals like Marak or companies like Lightbend - building Open Source Software in order to build a **Sustainable Open Source profiting to everyone**.
+
+_Note: It's also important to say that there are some developers working on Open Source and getting paid without any issues. The point here is to highlight some challenges other developers face._
+
+To learn more:
+
+- [The Register -> Bruce Perens quits Open Source Initiative amid row over new data-sharing crypto license: 'We've gone the wrong way with licensing'](https://www.theregister.com/2020/01/03/osi_cofounder_resigns/)
+- [Wikipedia -> Bruce Perens](https://en.wikipedia.org/wiki/Bruce_Perens)
+
+## Open Source triggers Growth
+
+**Despite all these [challenges](#open-source-challenges), investing in Open Source is still worth it.** That's why more and more organizations are involved in this process ([Orgs and Open Source](#orgs-and-open-source)) and there are also benefits for individuals ([My Open Source Journey](#my-open-source-journey)).
+
+### Orgs and Open Source
+
+_Note: Clicking on each org link will redirect to their GitHub Organization._
+
+First things first, let's start with the organization I belong: [Open Source Society Cameroon](https://github.com/osscameroon). It's always a pleasure to have fun, learn from others, contribute. Step by step, not only we grow as organization but we also improve oursleves as individuals. There are not only cameroonian citizens contributing but people from all over the world are welcome to do so.
+
+There is an infinite list of organizations open sourcing. Even if some have proprietary projects, they understand the Open Source impact on their business. You may be surprised to see some companies / orgs you had no idea about their involvement in open source. To name just a few: [Open Source Community Africa](https://github.com/oscafrica), [Snapchat](https://github.com/Snapchat), [TikTok](https://github.com/tiktok), [Google](https://github.com/google), [Mercedes-Benz](https://github.com/mercedes-benz), [Société Générale](https://github.com/societe-generale), [Orange](https://github.com/Orange-OpenSource), [Meta](https://github.com/facebook), [Microsoft](https://github.com/microsoft), [Amazon](https://github.com/amzn), [Amazon Web Services](https://github.com/aws), [Zalando](https://github.com/zalando), [Tesla](https://github.com/teslamotors), [NVIDIA](https://github.com/NVIDIA), [NVIDIA Labs](https://github.com/NVlabs), [LinkedIn](https://github.com/linkedin), [Alibaba](https://github.com/alibaba), [Apple](https://github.com/apple), [Samsung](https://github.com/Samsung), [Uber](https://github.com/uber), [Bolt](https://github.com/bolteu), [Spotify](https://github.com/spotify), [Telegram Desktop](https://github.com/telegramdesktop), [Telegram Messenger](https://github.com/telegrammessenger), [Adobe](https://github.com/adobe), [Visa](https://github.com/visa/), [Mastercard](https://github.com/Mastercard), [BMW-InnovationLab](https://github.com/BMW-InnovationLab), [BMW Car IT GmbH](https://github.com/bmwcarit), [Audi](https://github.com/audi), [Tencent](https://github.com/Tencent), [Hotels.com](https://github.com/HotelsDotCom), [Expedia Group](https://github.com/ExpediaGroup), [Expedia.com](https://github.com/ExpediaDotCom), [Airbnb](https://github.com/airbnb), [Booking.com](https://github.com/bookingcom), [Nike](https://github.com/Nike-Inc), [adidas](https://github.com/adidas), [Twitter | X](https://github.com/twitter), [Toyota Research Institute - Machine Learning](https://github.com/TRI-ML), [OpenAI](https://github.com/openai), [Adyen](https://github.com/Adyen), [Trivago](https://github.com/trivago)...
+
+### My Open Source Journey
+
+Now, let's focus on Open Source impact on individuals: my journey.
+
+Well, where do I start ? **My whole life was a rollercoaster, so many ups and downs**. Let me tell you the story of my life from 2019 until now. Why not start before 2019 you may ask, that year I did things that I ve not done before: **sharing my knowledge and contributing to Open Source**.
+
+My life was a big mess. Above all, I was jobless in 2019. Despite all the difficulties, I was really motivated to change things for the better. I read an article on Medium from an Uber's Engineer **inviting devs to not only send their resumes but to show their skills by contributing to Open Source**. It made me think twice then I started contributing to Société Générale projects: [my commits on arch-unit-build-plugin-core](https://github.com/societe-generale/arch-unit-build-plugin-core/commits?author=FanJups) & [my commits on arch-unit-maven-plugin](https://github.com/societe-generale/arch-unit-maven-plugin/commits?author=FanJups). [I made my first Pull Request on May 14, it was merged on May 21, 2019](https://github.com/societe-generale/arch-unit-maven-plugin/pull/5):
+
+![Screenshot of my first Open Source Pull Request on Société Générale arch-unit-maven-plugin](/static/images/posts/open-source-driven-development/my-first-open-source-pull-request.jpg)
+
+It was really fun to contribute to projects used by other devs, **seeing my name amongst other contributors motivated me to keep going then I continued to contribute again and again**:
+
+![Screenshot of the contributors list to Société Générale arch-unit-maven-plugin](/static/images/posts/open-source-driven-development/contributors-list-to-societe-generale-arch-unit-maven-plugin.jpg)
+
+That same year, I also published my first article on DZone titled [Applying CI/CD to Java Apps Using Spring Boot](https://dzone.com/articles/applying-cicd-to-java-apps-using-spring-boot). This article has been read at least 110k times and [forked by at least 60 devs on GitHub](https://github.com/FanJups/cicd-applied-to-spring-boot-java-app). I did not expect this result for my first article. [Rodrigo Graciano](https://twitter.com/rodrigograciano) shared my article on his [blog](https://graciano.dev/2020/01/16/weekend-reading-list-2/). That time, I was so surprised, I was like who is this guy ? How did he get my article ? I did not expect this outcome. He became my mentor, I am so grateful.
+
+Step by step, I made other contributions to [Google’s mug](https://github.com/google/mug/commits?author=FanJups), [Microsoft’s Spring Cloud Azure](https://github.com/microsoft/spring-cloud-azure/commits?author=FanJups) and [Apple’s Service Talk](https://github.com/apple/servicetalk/commits?author=FanJups) in 2020. **You will notice that I just updated the .gitignore file on Microsoft & Apple projects. Don't always think about doing big features to start, ask yourself what you can do to improve the project even if it is small**. After my successful introduction in the Open Source world, my friends and I launched [Open Source Society Cameroon](https://github.com/osscameroon). Then I started working on [js-generator](https://github.com/osscameroon/js-generator/commits?author=FanJups).
+
+My situation started to gradually improve. **As surprising as it may be, I got Portuguese Work Visa 2 times, the first one in November 2021 and the second in June 2022**. You may ask why did I not travel the first time ? I was supposed to travel to Portugal in January 2022. Aubay Portugal who hired me in the first place wanted to book my flight once I got a project from their clients then they cancelled my contract. It was the worst time to cancel the contract. How can my contract be canceled even though I obtained the visa? A clause in the contract specified that it would be canceled if I did not obtain the visa. No sense! Why not make me travel in Portugal then continue to introduce me to clients ? That way, I would have not spent all this time for nothing.
+
+Let me explain, I started Aubay's hiring process on April 23, 2021. **I was recommended by [Vincent Fuchs](https://twitter.com/big_vinz), Lead Dev of these open source projects at Société Générale to which I contributed. I was so happy that my hard work through contributions finally paid off.** One month later, I was hired on May 27 then got my visa on November 23, 2021. I was supposed to travel to Portugal on January 12, 2022 but I didn't because they cancelled my contract.
+
+Trust me, that was a tough situation but I decided to start over the visa process again because my dream was to work in Portugal and be a Speaker. So, I started another hiring process with Capgemini Engineering Portugal on February 24, 2022. I was hired on March 18 then got my Tech visa on June 14.
+
+Please, let me ask you a question, if you were me, would you be still motivated to start again ? I guess you would try another country right ? Would you start the visa process again immediately as I did ? Not sure, maybe you would start next year or 2 years later… Another fact making things more difficult is that I had to travel from my country Cameroon to Nigeria in order to submit my visa application to the Portuguese Embassy 2 times because there is no Portuguese Embassy in Cameroon.
+
+That's a big picture about my life : **failures but never giving up, doing things making people think I'm crazy but still believing in myself**.
+
+Finally, I arrived in Portugal on July 27, 2022. When the plane landed in Lisbon, I thought about this whole painful, tiring visa process telling myself that the storm is over. **Like a developer facing a bug, I never lost hope, I debugged my life again and again in order to make my dream come true. Finally, I'm in Portugal! Yes sir! My dream has come true!**
+
+Now I’m in Portugal, I continued working on js-generator. In 2023, I started contributing to [Mercedes-Benz’s SecHub](https://github.com/mercedes-benz/sechub/commits?author=FanJups), [Jakarta EE’s Data](https://github.com/jakartaee/data/pull/213) and [JUnit 5](https://github.com/junit-team/junit5/issues/3569). **You will notice that I just updated documentation on Mercedes-Benz project. Again, don't always think about doing big features to start, ask yourself what you can do to improve the project even if it is small**. My pull request on Jakarta EE’s Data was not merged due to the scope of my feature then I decided to suggest that feature to JUnit in order to implement at a global level. I am still waiting for JUnit to validate my [proposal](https://github.com/junit-team/junit5/issues/3569). Looks like, it is really interesting because [junit-pioneer is planning to let me implement this feature if JUnit does not approve](https://github.com/junit-pioneer/junit-pioneer/issues/793). So, let's wait, it means so much for me, I am going from being JUnit user to JUnit contributor.
+
+After getting a job, I am excited to start my speaking journey talking about OSDD at 2 conferences: [Lisbon JUG on April 2, 2024](https://www.meetup.com/pt-BR/lisbon-jug/events/299711843/?isFirstPublish=true) and [JNation, 4-5 June 2024](https://jnation.pt/). That's a big upgrade! Being a speaker is the logical continuation of my difficult journey before arriving in Portugal, my first article published by DZone in 2019 and my Open Source contributions. I rely on Open Source to improve myself day after day. Likewise, I think everyone can do the same. Reason why the theme of my talks is **Open Source Driven Development (OSDD)**.
+
+![Lisbon JUG Event - April 2, 2024](/static/images/posts/open-source-driven-development/lisbon-jug-flyer-2-april-2024.jpg)
+
+![JNation 2024 (4-5 June) website screenshot showing my speaker bio](/static/images/posts/open-source-driven-development/jnation-2024-screenshot-showing-my-speaker-bio.jpg)
+
+I started Open Source in order to show my skills to get a job then I got motivated about contributing to give back to the community, **it’s better to be a producer than a consumer**. It's not that easy to find time but thanks to passion I keep going. I remember **contributing while being jobless** and **waking up on saturday at 5 am to work on [js-generator](https://github.com/osscameroon/js-generator) after a long tiring week**. On [LinkedIn](https://www.linkedin.com/in/fanon-jupkwo/), you’ll notice I added **FanJups, Open Source Guy** to my name long time ago, the goal is just to give an overview of my profile, inform about the fact that my career is driven by Open Source and invite people to do the same. **I did not yet receive any money from Open Source but I improved my skills which allowed me to travel to work in Portugal and start my speaking journey. My life is a testament to how Open Source triggers career growth**.
+
+## Let's wrap up
+
+So many things to tell because Open Source is really huge.
+
+There are challenges occurring in this industry but **the problem is not Open Source itself but how actors use Open Source**. To support Open Source developers, there are some existing solutions such as [GitHub Sponsorship](https://github.com/sponsors), [Open Collective](https://opencollective.com/) collecting money. Furthermore, contributing back to the project in terms of maintenance is a must. Regarding the cases of [Marak](#colorsjs--fakerjs) and [Akka](#akka), we could have avoided this if they had received the support they so badly needed. [Bruce Perens](#bruce-perens) emphasizes on the fact that Big orgs must rethink their relation with developers - individuals like Marak or companies like Lightbend - building Open Source Software in order to build a **Sustainable Open Source profiting to everyone**.
+
+Despite these negative situations, it's still worth it to invest in Open Source for individuals and organizations. [Open Source has the power to trigger your growth the way you can't imagine](#open-source-triggers-growth). It’s better to be a producer than a consumer. **Even if you are not a developer, you can still contribute**.
+
+**You don’t have to be perfect to start but you have to start to be perfect so start contributing today to get better and better: OSDD.**
+
+## Further Reading
+
+- I am learning more about Open Source thanks to this book [Open Source Law, Policy and Practice](https://global.oup.com/academic/product/open-source-law-policy-and-practice-9780198862345?cc=pt&lang=en&) authored by [Amanda Brock](https://twitter.com/AmandaBrockUK).
+
+- What I do is in line with advices from this book [Developer Career Masterplan: Build your path to senior level and beyond with practical insights from industry experts](https://www.amazon.co.uk/Developer-Career-Masterplan-practical-insights-ebook/dp/B0CFLBHZXZ) co-authored by [Heather Vancura](https://twitter.com/heathervc) and [Bruno Souza](https://twitter.com/brjavaman).
