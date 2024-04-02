@@ -11,9 +11,7 @@ env:
 jobs:
   build-and-push-prod:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+    permissions: write-all
 
     steps:
       - name: Checkout repository
@@ -33,6 +31,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=sha,enable=true,priority=100,prefix=,suffix=,format=long
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
