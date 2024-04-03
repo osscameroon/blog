@@ -1,9 +1,13 @@
-name: Build the blog image and deploy
+name: Build Prod Image
 
 on:
   push:
     branches:
       - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 env:
   REGISTRY: ghcr.io
