@@ -6,7 +6,7 @@ company: GitHub
 email: address@yoursite.com
 twitter: https://twitter.com/elhmne
 linkedin: https://www.linkedin.com/in/boris-mbarga-6bb2015a
-github: https://github.com/elhmn
+github: https://github.com/elhmneeeeeee
 ---
 
 Software Engineer at [GitHub](https://github.com/), I build video games, draw and play piano.
