@@ -1,4 +1,4 @@
-name: Build Staging Image
+name: Build and Deploy Staging Image
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-push-prod:
+  build-and-push:
     runs-on: ubuntu-latest
     permissions: write-all
 
