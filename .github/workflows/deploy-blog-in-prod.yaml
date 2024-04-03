@@ -1,4 +1,4 @@
-name: Build Prod Image
+name: Build and Deploy Prod Image
 
 on:
   push:
@@ -14,7 +14,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-push-prod:
+  build-and-push:
     runs-on: ubuntu-latest
     permissions:
       contents: read
