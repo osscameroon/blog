@@ -1,0 +1,171 @@
+---
+title: Guide to integrate mobile money payments for a Python web app with Notchpay in Cameroon
+date: '2024-09-07'
+tags: ['Payment API', 'Mobile Money', 'Python']
+draft: false
+summary: 3 simple steps to integrate mobile money payment into your Python web application
+images: []
+layout: PostLayout
+canonicalUrl: mobile-money-integration-python-cameroon-2024
+authors: ['nab']
+---
+
+This is a translation of an article I wrote in January 2024. In that article, i'm explaining [how to integrate Orange Money or MTN Momo in a python web application](https://peef.dev/post/nasser/comment-integrer-les-paiements-orange-money-ou-mtn-momo-au-cameroun-dans-son-application-avec-python-286).
+
+Just for you to know, i wrote that article because i wanted to share with every developer in Cameroon, the steps i did follow to integrate a mobile money payment provider to my [marketplace](https://peef.dev). I found that platform really simple, so, let's get started.
+
+[Notchpay](https://notchpay.co/) offers you a way to integrate payment methods into your application and supports card and mobile money payments.
+
+The integration is simple:
+
+First, create an account on [Notchpay](https://business.notchpay.co/). Your account gives you access to a sandbox that allows you to test the API. In the **settings** (Settings > Developer), you'll find your **API key** (PUBLIC_KEY) that you'll use for authentication in your application.
+
+## Initiating payment
+
+The [documentation](https://developer.notchpay.co/) already describe all the endpoints you can use, particularly in the [API reference](https://developer.notchpay.co/api/tag/payment) section.
+
+In our case, we will use [Flask](https://pypi.org/project/Flask/) to build the controllers and the [Requests](https://pypi.org/project/requests/) library to make requests to Notchpay.
+
+Let's first initialize the payment:
+
+```python
+def initialize_payment(
+    email, currency, amount, phone, reference, description, callback
+):
+    headers = {"Authorization": PUBLIC_KEY, "Accept": "application/json"}
+    url = "https://api.notchpay.co/payments/initialize"
+    data = {
+        "email": email,
+        "currency": currency,
+        "amount": amount,
+        "phone": phone,
+        "reference": reference,
+        "description": description,
+        "callback": callback,
+    }
+
+    response = requests.post(url, headers=headers, data=data)
+
+    if response.ok:
+        json_response = response.json()
+        return json_response
+    else:
+        return {"status_code": response.status_code, "msg": response.text}
+```
+
+In that function:
+
+1. We define the necessary data for the payment as arguments, in the **data** variable,
+2. Then the **header** through which we execute our request. This header contains the API Key
+3. And we return a JSON response.
+
+For more information on this payment initiation endpoint and the JSON response, just go to the documentation of that endpoint [/payments/initialize](https://developer.notchpay.co/api/tag/payment/post/payments)
+
+Additionally, note that the callback will be a controller on your site that will be called after the payment. You can use it to implement payment verification.
+
+- From there, we'll create our controllers: first a simple web page that displays a "Pay Now" link.
+- When this link is clicked, the **pay()** controller is called and will initiate the payment then will do a redirection to the Notchpay payment page:
+
+```python
+return redirect(init_payment.get("authorization_url"))
+```
+
+- At this point, the Notchpay page dedicated for the payment will be displayed
+- The user can then make his payment via credit card or mobile money phone number
+
+```python
+HTML_PAGE = """
+<h1>Process payment</h1>
+<a href="/pay">Pay Now</a>
+"""
+
+@app.route("/")
+def home():
+    return HTML_PAGE
+
+@app.route("/pay")
+def pay():
+    payment_reference = uuid.uuid1()
+    init_payment = initialize_payment(
+        email="customersss@email.com",
+        currency="XAF",
+        amount="1500",
+        phone=None,
+        reference=payment_reference,
+        description=f"Payment description {payment_reference}",
+        callback=f"http://localhost:5000/verify", # make sure to have the right host
+    )
+    return redirect(init_payment.get("authorization_url"))
+```
+
+When the payment is made by the user, it must then be verified through the callback that was passed to the **initialize_payment()** function.
+
+## Payment verification
+
+Here is the verification function :
+
+```python
+def verify_payment(reference):
+    url = f"https://api.notchpay.co/payments/{reference}"
+    headers = {"Authorization": PUBLIC_KEY}
+
+    response = requests.get(url, headers=headers)
+
+    if response.ok:
+        json_response = response.json()
+        logger.debug(json_response)
+        return json_response
+    else:
+        return {"status_code": response.status_code, "msg": response.text}
+```
+
+1. This function takes as parameter the payment reference which is passed in the callback via a **GET** method from Notchpay.
+2. We then construct the header through the URL [/payments/{reference}](https://developer.notchpay.co/reference/payments#verify-and-fetch-payment) for payment verification
+3. and return a JSON response
+
+The callback will be the **verify()** controller which will extract the reference and pass this payment reference to the **verify_payment()** function
+
+```python
+@app.route("/verify")
+def verify():
+    reference = request.args.get("reference")
+    return verify_payment(reference)
+```
+
+From there, you can just retrieve the JSON response to continue your process based on the response (payment failure or success)
+
+## Payment verification through a Webhook
+
+If you want to verify payments in the background, you can set up a webhook in your backend like this:
+
+```python
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    signature = request.headers.get("x-notch-signature")
+    hash_value = hashlib.sha256(HASH_KEY).hexdigest()
+    if hash_value == signature:
+        try:
+            json_data = request.get_json()
+            logger.info("Webhook data:", json_data)
+            return "", 200  # OK
+        except Exception as e:
+            logger.info("Error parsing JSON:", e)
+            abort(400)  # Bad request
+    else:
+        logger.info("Webhook request could not be verified.")
+        abort(403)  # Forbidden
+```
+
+Notchpay will then send the response of each payment to your webhook and depending on the result, you can continue your process, such as validating an order for example.
+
+If you're on localhost, you'll need to install [Ngrok](https://ngrok.com/) to make your URL public and go to the Notchpay administration interface to define your webhook with a key and your URL.
+
+The key will be the one you will use as **HASH_KEY** to authenticate your server so that Notchpay recognizes your signature.
+
+That's all for now.
+
+You can find the complete code [here on GitHub](https://github.com/abdounasser202/just-for-fun/tree/main/notchpay)
+
+If you have any questions, don't hesitate to ask in the OSS Telegram Channel.
+
+Ciao !
